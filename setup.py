@@ -155,7 +155,7 @@ setup(
         "Topic :: Scientific/Engineering :: Information Analysis",
     ],
     platforms="Linux",
-    license="agpl 3.0",
+    license="AGPL-3.0-or-later",
     keywords=(
         "music-scores analysis tomato audio-recordings lilypond tonic "
         "makam-music score music-information-retrieval "
@@ -165,18 +165,21 @@ setup(
     package_dir={"": TOMATO_DIR},
     include_package_data=True,
     python_requires=">=3.5,<3.8",
+    build_requires=[
+        "six"
+    ],
     install_requires=[
         "numpy>=1.9.0",  # numerical operations
         "scipy>=0.17.0",  # temporary mat file saving for MCR binary inputs
-        "pandas>=0.18.0,<=0.24.2",  # tabular data processing
-        "matplotlib>=1.5.1,<=3.0.3",  # plotting
+        "pandas~=1.5.0",  # tabular data processing
+        "matplotlib~=3.9.0",  # plotting
         "json_tricks>=3.12.1",  # saving json files with classes and numpy
-        "eyeD3>=0.7.5,<=0.8.11",  # reading metadata embedded in recordings
-        "python-Levenshtein>=0.12.0",  # semiotic structure labeling
+        "eyeD3~=0.9.7",  # reading metadata embedded in recordings
+        "Levenshtein>=0.27.1",  # semiotic structure labeling
         "networkx>=1.11",  # semiotic structure labeling clique computation
         "lxml>=3.6.0",  # musicxml conversion
         "musicbrainzngs>=0.6",  # metadata crawling from musicbrainz
-        "essentia>=2.1b5;platform_system=='Linux'",  # audio signal processing
+        "essentia>=2.1b6.dev;sys_platform=='linux'",  # audio signal processing
     ],
     extras_require={
         "development": [
